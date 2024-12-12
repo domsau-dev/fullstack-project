@@ -1,0 +1,48 @@
+<!-- age: 0-17, 18-64, 65+ 
+ income: 0, 1-12000, 12001-40000, 40001+ -->
+<div class="container">
+
+    <form [formGroup]="questions" class="item">
+        <p>Please answer a few questions about yourself</p>    
+        <p class="question">Your age:</p>
+        
+            <input type="radio" name="age" id="id-0-17" value="0-17" formControlName="age">
+            <label for="id-0-17">0-17</label>
+            <input type="radio" name="age" id="id-18-64" value="18-64" formControlName="age">
+            <label for="id-18-64">18-64</label>
+            <input type="radio" name="age" id="id-65+" value="65+" formControlName="age">
+            <label for="id-65+">65+</label>
+ 
+
+
+        <div [hidden]="!isClicked || (isClicked && questions.value.age)" class="error-message">Choose your age range</div>
+
+        <p class="question">Are you a student?</p>
+        <input type="radio" name="student" id="yes" value="yes" formControlName="student">
+        <label for="yes">Yes</label>
+        <input type="radio" name="student" id="no" value="no" formControlName="student">
+        <label for="no">No</label>
+
+        <div [hidden]="!isClicked || (isClicked && questions.value.student)" class="error-message">Answer if you are a student</div>
+
+        <p class="question">Your income:</p>
+        <input type="radio" name="income" id="id-0" value="0" formControlName="income">
+        <label for="id-0">0</label>
+        <input type="radio" name="income" id="id-1-12000" value="1-12000" formControlName="income">
+        <label for="id-1-12000">1-12000</label>
+        <input type="radio" name="income" id="id-12001-40000" value="12001-40000" formControlName="income">
+        <label for="id-12001-40000">12001-40000</label>
+        <input type="radio" name="income" id="id-40001+" value="40001+" formControlName="income">
+        <label for="id-40001+">40001+</label>
+        <div [hidden]="!isClicked || (isClicked && questions.value.income)" class="error-message">Choose your income range</div>
+    </form>
+
+  
+    <div class="item">
+        <a [routerLink]="questions.valid ? 'recommendations' : ''">
+            <input type="button" value="Get recommendations" (click)="submitFunc()" class="btn">
+        </a>
+    </div>
+        <p [hidden]="!isClicked || (isClicked && questions.valid)" class="error-message">You have unanswered questions
+        </p>
+</div>
