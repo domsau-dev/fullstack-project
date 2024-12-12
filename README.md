@@ -12,10 +12,10 @@ This app uses Angular for frontend and Express for backend. For unit testing Jas
 
 Download the code, then for the frontend part navigate to _frontend_ folder and download node packages with `npm i`
 
-Then launch the program with `npm run`
+Then launch the program with `npm start`
 
 For the backend, open another command line and navigate to _backend_ and download node packages with `npm i`
 
-Then launch the backend with `npm run`
+Then launch the backend with `npm start`
 
 To open the app, navigate to `http://localhost:4200/` 
