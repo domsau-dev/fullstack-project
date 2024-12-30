@@ -3,7 +3,7 @@ import { ApiService } from './api.service';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { firstValueFrom, Observable } from 'rxjs';
-import { Answers } from './answers';
+import { Answers } from '../types/answers';
 
 describe('ApiService', () => {
   let service: ApiService;
@@ -11,7 +11,7 @@ describe('ApiService', () => {
   let answers: Answers;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({providers: [provideHttpClient(), provideHttpClientTesting()]});
+    TestBed.configureTestingModule({ providers: [provideHttpClient(), provideHttpClientTesting()] });
     service = TestBed.inject(ApiService);
 
     answers = {

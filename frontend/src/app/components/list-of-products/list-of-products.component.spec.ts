@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListOfProductsComponent } from './list-of-products.component';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../services/api.service';
 import { of } from 'rxjs';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
@@ -14,14 +14,14 @@ describe('ListOfProductsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ListOfProductsComponent],
-      providers: [{provide: ApiService, useValue: spy}, provideHttpClient(), provideHttpClientTesting(), provideRouter([{path: 'recommendations', component: ListOfProductsComponent}])]
+      providers: [{ provide: ApiService, useValue: spy }, provideHttpClient(), provideHttpClientTesting(), provideRouter([{ path: 'recommendations', component: ListOfProductsComponent }])]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ListOfProductsComponent);
     apiServiceSpy = TestBed.inject(ApiService) as jasmine.SpyObj<ApiService>;
     component = fixture.componentInstance;
-    
+
   });
 
   it('should create', () => {

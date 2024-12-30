@@ -1,34 +1,34 @@
-import { ProductConditions } from './product-conditions';
-import { listOfProducts } from './list-of-products';
+import { ProductConditions } from './types/product-conditions';
+import { listOfProducts } from './data/list-of-products';
 
 export function showProducts(comparableAnswers: ProductConditions): string[] {
-    let productsToShow: string[] = [];
+  let productsToShow: string[] = [];
 
-    for (const product of listOfProducts) {
-        let ageCondition: boolean = false, studentCondition: boolean = false, incomeCondition: boolean = false;
-  
-        if (!product.minAge && !product.maxAge) {
-          ageCondition = true;
-        } else if ((product.minAge! <= comparableAnswers.minAge!) && (product.maxAge! >= comparableAnswers.maxAge!)) {
-          ageCondition = true;
-        }
-  
-        if (product.isStudent === undefined) {
-          studentCondition = true;
-        } else if (product.isStudent === comparableAnswers.isStudent) {
-          studentCondition = true;
-        }
-  
-        if (!product.minIncome && !product.maxIncome) {
-          incomeCondition = true;
-        } else if ((product.minIncome! <= comparableAnswers.minIncome!) && (product.maxIncome! >= comparableAnswers.maxIncome!)) {
-          incomeCondition = true;
-        }
-  
-        if (ageCondition && studentCondition && incomeCondition) {
-          productsToShow.push(product.name!);
-        }
-      }
+  for (const product of listOfProducts) {
+    let ageCondition: boolean = false, studentCondition: boolean = false, incomeCondition: boolean = false;
 
-      return productsToShow;
+    if (!product.minAge && !product.maxAge) {
+      ageCondition = true;
+    } else if ((product.minAge! <= comparableAnswers.minAge!) && (product.maxAge! >= comparableAnswers.maxAge!)) {
+      ageCondition = true;
+    }
+
+    if (product.isStudent === undefined) {
+      studentCondition = true;
+    } else if (product.isStudent === comparableAnswers.isStudent) {
+      studentCondition = true;
+    }
+
+    if (!product.minIncome && !product.maxIncome) {
+      incomeCondition = true;
+    } else if ((product.minIncome! <= comparableAnswers.minIncome!) && (product.maxIncome! >= comparableAnswers.maxIncome!)) {
+      incomeCondition = true;
+    }
+
+    if (ageCondition && studentCondition && incomeCondition) {
+      productsToShow.push(product.name!);
+    }
+  }
+
+  return productsToShow;
 }

@@ -10,9 +10,9 @@ describe('FormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormComponent],
-      providers: [provideHttpClient(), provideRouter([{path: '', component: FormComponent}])]
+      providers: [provideHttpClient(), provideRouter([{ path: '', component: FormComponent }])]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FormComponent);
     component = fixture.componentInstance;
@@ -24,7 +24,7 @@ describe('FormComponent', () => {
   });
 
   it('should have correct property values', () => {
-    const fakeQuestions = {age: '', student: '', income: ''};
+    const fakeQuestions = { age: '', student: '', income: '' };
 
     expect(component.isClicked).toEqual(false);
     expect(component.dataToSend).toEqual([]);
@@ -35,7 +35,7 @@ describe('FormComponent', () => {
     const buttonAge0_17: HTMLElement = fixture.nativeElement.querySelector('#id-0-17');
     const buttonStudentNo: HTMLElement = fixture.nativeElement.querySelector('#no');
     const buttonIncome12001_40000: HTMLElement = fixture.nativeElement.querySelector('#id-12001-40000');
-    
+
     buttonAge0_17.click();
     buttonIncome12001_40000.click();
     buttonStudentNo.click();
@@ -61,7 +61,7 @@ describe('FormComponent', () => {
     const buttonStudentYes: HTMLElement = fixture.nativeElement.querySelector('#yes');
 
     const buttonGetRecommendations: HTMLElement = fixture.nativeElement.querySelector('.btn');
-    
+
     const errormessages: HTMLElement[] = fixture.nativeElement.querySelectorAll('.error-message');
     buttonStudentYes.click();
     buttonGetRecommendations.click();

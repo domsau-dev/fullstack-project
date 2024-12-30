@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
@@ -14,8 +14,8 @@ import { AsyncPipe } from '@angular/common';
 })
 export class ListOfProductsComponent implements OnInit {
   products$!: Observable<string[]>;
-  
-  constructor(public apiService: ApiService) {}
+
+  constructor(public apiService: ApiService) { }
 
   ngOnInit(): void {
     this.products$ = this.apiService.getProducts();

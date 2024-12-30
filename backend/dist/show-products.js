@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.showProducts = showProducts;
-const list_of_products_1 = require("./list-of-products");
+const list_of_products_1 = require("./data/list-of-products");
 function showProducts(comparableAnswers) {
     let productsToShow = [];
     for (const product of list_of_products_1.listOfProducts) {

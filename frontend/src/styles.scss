@@ -3,26 +3,26 @@ $btn-color: rgba(0, 0, 255, 0.767);
 $btn-hover-color: rgba(44, 44, 204, 0.767);
 
 .btn {
-    width: 150px;
-    height: 60px;
-    background-color: $btn-color;
-    text-wrap: wrap;
-    color: white;
+  width: 150px;
+  height: 60px;
+  background-color: $btn-color;
+  text-wrap: wrap;
+  color: white;
 }
 
 .btn:hover {
-    cursor: pointer;
-    background-color: $btn-hover-color;
-    box-shadow: 3px 3px 3px $btn-hover-color;
+  cursor: pointer;
+  background-color: $btn-hover-color;
+  box-shadow: 3px 3px 3px $btn-hover-color;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  font-size: 20px;
 
-    .item {
-        margin-top: 40px;   
-    }
+  .item {
+    margin-top: 40px;
+  }
 }

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="item before-products">We recommend you these products:</div>
+
+  @if (products$ | async; as products) {
+  @for(product of products; track product) {
+  <div class="product">{{ product }}</div>
+  }
+  } @else {
+  <div>Loading...</div>
+  }
+
+  <a routerLink=""><button class="btn">Return to homepage</button></a>
+</div>

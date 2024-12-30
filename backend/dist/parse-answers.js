@@ -17,7 +17,7 @@ function parseAnswers(answers) {
                 throw new Error('Not a valid input');
             }
         }
-        else if (answers[property.range].includes('-') && (answers[property.range][0] !== '-') && (answers[property.range][answers[property.range].length - 1] !== '-')) {
+        else if (answers[property.range].includes('-') && !(answers[property.range].startsWith('-')) && !(answers[property.range].endsWith('-'))) {
             const splitNumbers = answers[property.range].split('-');
             if (splitNumbers.length === 2 && !isNaN(Number(splitNumbers[0])) && !isNaN(Number(splitNumbers[1]))) {
                 [comparableAnswers[property.minRange], comparableAnswers[property.maxRange]] = splitNumbers.map(Number);

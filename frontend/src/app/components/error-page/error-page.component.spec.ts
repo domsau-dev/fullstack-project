@@ -1,5 +1,5 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { ErrorPageComponent } from '../error-page/error-page.component';
+import { ErrorPageComponent } from './error-page.component';
 import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
@@ -13,9 +13,9 @@ describe('ErrorPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ErrorPageComponent],
-      providers: [provideRouter([{ path:'**', component: ErrorPageComponent }])]
+      providers: [provideRouter([{ path: '**', component: ErrorPageComponent }])]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ErrorPageComponent);
     component = fixture.componentInstance;
@@ -29,7 +29,7 @@ describe('ErrorPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return to homepage after clicking a button', fakeAsync( () => {
+  it('should return to homepage after clicking a button', fakeAsync(() => {
     const button: HTMLElement = harness.routeNativeElement!.querySelector('a') as HTMLElement;
     button.click();
     tick();
