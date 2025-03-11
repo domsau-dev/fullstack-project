@@ -1,0 +1,69 @@
+<div class="container">
+  <p>You can remove or add products</p>
+
+  <p>List of products:</p>
+  <div>
+    <span>Product1</span>
+    <span>Remove</span>
+  </div>
+
+  <p>
+    Name is required and two or more products cannot have the same name. Age and income ranges must be integers. 
+    If a product doesn't have a specific condition, leave that part of form empty, or reset if there are any values. 
+    If you want a product without an upper or lower bound, leave min or max empty (for example, if income > 500, then min income is 500, max income is empty).
+    Check inclusive if you want min or max number to be in the range. 
+    Min value must be lower or equal to max value. 
+  </p>
+
+  <form [formGroup]="product" class="item">
+    <p class="question">Name:</p>
+    <input type="text" name="name" id="name" formControlName="name">
+    <div class="error-message" [hidden]="!isClicked || (isClicked && !product.hasError('required'))">Name is required</div>
+
+    <div formGroupName="age">
+      <p class="question">Age range:</p>
+      <label for="minAge">Min age:</label>
+      <input type="number" name="minAge" id="minAge" min="0" formControlName="min" (keypress)="disableLetters($event)">
+      <label for="inclusiveMinAge">Inclusive</label>
+      <input type="checkbox" name="inclusiveMinAge" id="inclusiveMinAge" formControlName="minInclusive">
+  
+      <label for="maxAge">Max age:</label>
+      <input type="number" name="maxAge" id="maxAge" min="0" formControlName="max" (keypress)="disableLetters($event)">
+      <label for="inclusiveMaxAge">Inclusive</label>
+      <input type="checkbox" name="inclusiveMaxAge" id="inclusiveMaxAge" formControlName="maxInclusive">
+      <button class="btn" (click)="resetAge()" id="resetAge">Reset</button>
+      <div>{{ this.productToSend | json}}</div>
+      <div class="error-message" [hidden]="!product.get('age')?.hasError('correctRange')">Min value cannot be higher than max value</div>
+      <div class="error-message" [hidden]="!product.get('age')?.hasError('pattern', 'min') && 
+            !product.get('age')?.hasError('pattern', 'max')">Input must be integer</div>
+    </div>
+
+    <div formGroupName="income">
+      <p class="question">Income range:</p>
+      <label for="minIncome">Min income:</label>
+      <input type="number" name="minIncome" id="minIncome" min="0" formControlName="min" (keypress)="disableLetters($event)">
+      <label for="inclusiveMinIncome">Inclusive</label>
+      <input type="checkbox" name="inclusiveMinIncome" id="inclusiveMinIncome" formControlName="minInclusive">
+  
+      <label for="maxIncome">Max income:</label>
+      <input type="number" name="maxIncome" id="maxIncome" min="0" formControlName="max" (keypress)="disableLetters($event)">
+      <label for="inclusiveMaxIncome">Inclusive</label>
+      <input type="checkbox" name="inclusiveMaxIncome" id="inclusiveMaxIncome" formControlName="maxInclusive">
+      <button class="btn" (click)="resetIncome()" id="resetIncome">Reset</button>
+      <div class="error-message" [hidden]="!product.get('income')?.hasError('correctRange')">Min value cannot be higher than max value</div>
+      <div class="error-message" [hidden]="!product.get('income')?.hasError('pattern', 'min') && 
+            !product.get('income')?.hasError('pattern', 'max')">Input must be integer</div>
+    </div>
+
+      <p>Is student:</p>
+      <input type="radio" name="isStudent" id="yes" value="yes" formControlName="isStudent">
+      <label for="yes">yes</label>
+      <input type="radio" name="isStudent" id="no" value="no" formControlName="isStudent">
+      <label for="no">no</label>
+      <button class="btn final" (click)="resetStudent()" id="resetStudent">Reset</button>
+  </form>
+
+  <button class="btn item" (click)="submitProduct()" id="submitProduct">Add product</button>
+
+  <a routerLink="" class="item"><button class="btn">Return to homepage</button></a>
+</div>

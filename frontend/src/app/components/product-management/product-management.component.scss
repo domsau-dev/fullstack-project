@@ -1,0 +1,17 @@
+@import url('../form/form.component.scss');
+
+.question {
+  margin-bottom: 0px;
+}
+
+input[type="number"] {
+  margin-right: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 20px;
+}
+
+.final {
+  margin-left: 20px;
+}

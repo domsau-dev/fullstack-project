@@ -2,8 +2,8 @@
 
   <form [formGroup]="questions" class="item">
     <p>Please answer a few questions about yourself</p>
-    <p class="question">Your age:</p>
 
+    <p class="question">Your age:</p>
     <input type="radio" name="age" id="id-0-17" value="0-17" formControlName="age">
     <label for="id-0-17">0-17</label>
     <input type="radio" name="age" id="id-18-64" value="18-64" formControlName="age">
@@ -40,4 +40,6 @@
     </a>
   </div>
   <p [hidden]="!isClicked || (isClicked && questions.valid)" class="error-message">You have unanswered questions</p>
+
+  <a routerLink="productmanagement"><button class="btn">Manage products</button></a>
 </div>
